@@ -9,7 +9,7 @@ class CategoryList extends React.PureComponent {
     this.props.fetchCategories();
   }
   renderCategories(category) {
-    return (<CategoryItem data={category} />);
+    return (<CategoryItem key={category.name} data={category} />);
   }
   render() {
     return (

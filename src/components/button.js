@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Button(props) {
-  return (<button><a href="/">CREATE POST</a></button>);
+  return (<button onClick={props.onClick}>{props.children}</button>);
 }
 
 export default Button;

@@ -2,9 +2,10 @@ import React from 'react';
 
 function PostItem(props) {
   const { voteScore, title, commentCount, category, id } = props.data;
+  const url = `post/${id}`;
   return (
     <div>
-      <a href={id}>{title}</a>
+      <a href={url}>{title}</a>
       <p>Score: {voteScore}</p>
       <p>Comments: {commentCount}</p>
       <p>Category: <a href={category}>{category}</a></p>

@@ -11,6 +11,7 @@ import logger from 'redux-logger';
 import reducers from './reducers';
 import HOME from './containers/Home';
 import CATEGORY from './containers/Category';
+import POST from './containers/Post';
 import registerServiceWorker from './registerServiceWorker';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -28,7 +29,8 @@ ReactDOM.render(
     <ConnectedRouter history={HISTORY}>
       <div>
         <Route exact path="/" component={HOME} />
-        <Route path="/:category" component={CATEGORY} />
+        <Route exact path="/:category" component={CATEGORY} />
+        <Route path="/post/:id" component={POST} />
       </div>
     </ConnectedRouter>
   </Provider>,

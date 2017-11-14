@@ -3,7 +3,7 @@ import React from 'react';
 import CategoryList from '../CategoryList';
 import PostsList from '../PostsList';
 import Filters from '../Filters';
-import Button from '../../components/button';
+import Link from '../../components/Link';
 
 
 class Category extends React.PureComponent {
@@ -13,7 +13,7 @@ class Category extends React.PureComponent {
         <header className="App-header">
           <h2>Categories</h2>
           <CategoryList />
-          <Button />
+          <Link to="/create-post">CREATE POST</Link>
           <hr/>
           <Filters />
         </header>

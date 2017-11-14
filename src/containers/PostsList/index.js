@@ -15,7 +15,7 @@ class PostsList extends React.PureComponent {
 
   renderPosts(post) {
     console.log('render post')
-    return (<PostItem data={post} />);
+    return (<PostItem key={post.id} data={post} />);
   }
 
   voteScoreSort(a, b) {
