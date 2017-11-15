@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 import { fetchPost, deletePost } from './actions';
 import Comments from '../Comments';
@@ -22,12 +23,13 @@ class Post extends React.PureComponent {
 
   render() {
     const { title, author, timestamp, voteScore, body, id } = this.props.post;
+    const date = moment(timestamp).format('ll');;
     return (
       <div className="App">
         <header className="App-header">
           <h2>{title}</h2>
           <p>author: {author}</p>
-          <p>date: {timestamp}</p>
+          <p>date: {date}</p>
           <p>score: {voteScore}</p>
           <Link to={`/post/${id}/edit`}>EDIT POST</Link>
           <span> | </span>
