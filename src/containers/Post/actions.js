@@ -1,5 +1,6 @@
 import { GET_POST } from './constants';
-import { fetchSinglePost } from '../../utils/api';
+import { push } from 'react-router-redux';
+import { fetchSinglePost, deletePosts } from '../../utils/api';
 
 export const getPost = post => ({
   type: GET_POST,
@@ -9,4 +10,10 @@ export const getPost = post => ({
 export const fetchPost = id => dispatch => (
   fetchSinglePost(id)
     .then(post => dispatch(getPost(post.data)))
+);
+
+export const deletePost = id => dispatch => (
+  deletePosts(id).then(res => {
+    return dispatch(push('/'));
+  })
 );

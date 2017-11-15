@@ -1,15 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchPost } from './actions';
+import { fetchPost, deletePost } from './actions';
 import Comments from '../Comments';
 import Link from '../../components/Link';
+import Button from '../../components/button'
 
 
 class Post extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
   componentDidMount() {
     this.props.fetchPost(this.props.match.params.id)
   }
+
+  handleDelete() {
+    this.props.deletePost(this.props.match.params.id)
+  }
+
   render() {
     const { title, author, timestamp, voteScore, body, id } = this.props.post;
     return (
@@ -21,7 +31,7 @@ class Post extends React.PureComponent {
           <p>score: {voteScore}</p>
           <Link to={`/post/${id}/edit`}>EDIT POST</Link>
           <span> | </span>
-          <Link to="">DELETE POST</Link>
+          <Button onClick={this.handleDelete}>DELETE POST</Button>
           <hr/>
         </header>
         <p>{body}</p>
@@ -39,6 +49,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchPost: id => dispatch(fetchPost(id)),
+  deletePost: id => dispatch(deletePost(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post);

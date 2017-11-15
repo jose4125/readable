@@ -77,3 +77,11 @@ export const editPosts = (post, id) => axios
       Authorization: 'whatever-you-want',
     },
   });
+
+export const deletePosts = (id) => axios
+.delete(`http://localhost:3001/posts/${id}`,
+  {
+    headers: {
+      Authorization: 'whatever-you-want',
+    },
+  });
