@@ -13,7 +13,7 @@ class Home extends React.PureComponent {
         <header className="App-header">
           <h2>Categories</h2>
           <CategoryList />
-          <Link to="/create-post">CREATE POST</Link>
+          <Link to="/post/new">CREATE POST</Link>
           <hr/>
           <Filters />
         </header>

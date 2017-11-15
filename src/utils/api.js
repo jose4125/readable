@@ -23,12 +23,12 @@ export const fetchAllCategoryPosts = category => axios
     });
 
 export const fetchSinglePost = id => axios
-.get(`http://localhost:3001/posts/${id}`,
-  {
-    headers: {
-      Authorization: 'whatever-you-want',
-    },
-  });
+  .get(`http://localhost:3001/posts/${id}`,
+    {
+      headers: {
+        Authorization: 'whatever-you-want',
+      },
+    });
 
 export const fetchSinglePostComments = id => axios
 .get(`http://localhost:3001/posts/${id}/comments`,
@@ -56,6 +56,22 @@ export const editComments = (comment, id) => axios
 
 export const deleteSingleComment = id => axios
 .delete(`http://localhost:3001/comments/${id}`,
+  {
+    headers: {
+      Authorization: 'whatever-you-want',
+    },
+  });
+
+export const savePosts = post => axios
+.post('http://localhost:3001/posts', post,
+  {
+    headers: {
+      Authorization: 'whatever-you-want',
+    },
+  });
+
+export const editPosts = (post, id) => axios
+.put(`http://localhost:3001/posts/${id}`, post,
   {
     headers: {
       Authorization: 'whatever-you-want',

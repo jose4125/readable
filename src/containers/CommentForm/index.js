@@ -41,7 +41,7 @@ class CommentForm extends React.PureComponent {
     const comment = {
       timestamp: Date.now(),
       body: this.state.body,
-    }
+    };
     this.props.editComment(comment, this.props.id);
   }
 

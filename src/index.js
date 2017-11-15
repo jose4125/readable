@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
-import { Route } from 'react-router';
+import { Route, Switch } from 'react-router';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
@@ -12,6 +12,7 @@ import reducers from './reducers';
 import HOME from './containers/Home';
 import CATEGORY from './containers/Category';
 import POST from './containers/Post';
+import CREATEEDITPOST from './containers/CreateEditPost';
 import registerServiceWorker from './registerServiceWorker';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -27,11 +28,13 @@ const STORE = createStore(
 ReactDOM.render(
   <Provider store={STORE}>
     <ConnectedRouter history={HISTORY}>
-      <div>
+      <Switch>
         <Route exact path="/" component={HOME} />
-        <Route exact path="/:category" component={CATEGORY} />
-        <Route path="/post/:id" component={POST} />
-      </div>
+        <Route path="/post/new" component={CREATEEDITPOST} />
+        <Route path="/post/:id/edit" component={CREATEEDITPOST} />
+        <Route path="/:category/:id" component={POST} />
+        <Route path="/:category" component={CATEGORY} />
+      </Switch>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root'),

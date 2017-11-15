@@ -19,7 +19,7 @@ class Post extends React.PureComponent {
           <p>author: {author}</p>
           <p>date: {timestamp}</p>
           <p>score: {voteScore}</p>
-          <Link to="">EDIT POST</Link>
+          <Link to={`/post/${id}/edit`}>EDIT POST</Link>
           <span> | </span>
           <Link to="">DELETE POST</Link>
           <hr/>
