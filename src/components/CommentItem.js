@@ -1,23 +1,39 @@
 import React from 'react';
 import CommentForm from '../containers/CommentForm';
 import Button from './button';
+import Date from './date'
 
-function CommentItem(props) {
-  const { author, body, voteScore, timestamp, id } = props.data;
-  return (
-    <div>
-      <p>{author}</p>
-      <p>date: {timestamp}</p>
-      <p>score: {voteScore} </p>
-      <p>{body}</p>
-      <Button onClick={props.handleEdit}>EDIT COMMENT</Button>
-      <span> | </span>
-      <Button onClick={props.handleDelete}>DELETE COMMENT</Button>
-      <hr/>
-      <CommentForm id={id} parentId={props.parent} body={body} edit />
-      <hr/>
-    </div>
-  );
+class CommentItem extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.handleEdit = this.handleEdit.bind(this);
+    this.state = {
+      editCommentIsOpen: false,
+    };
+  }
+  handleEdit() {
+    this.setState({
+      editCommentIsOpen: !this.state.editCommentIsOpen,
+    });
+  }
+
+  render() {
+    const { author, body, voteScore, timestamp, id } = this.props.data;
+    return (
+      <div>
+        <p>{author}</p>
+        <p>date: <Date timestamp={timestamp} /></p>
+        <p>score: {voteScore} </p>
+        <p>{body}</p>
+        <Button onClick={this.handleEdit}>EDIT COMMENT</Button>
+        <span> | </span>
+        <Button onClick={this.props.handleDelete}>DELETE COMMENT</Button>
+        <hr/>
+        {this.state.editCommentIsOpen && <CommentForm id={id} parentId={this.props.parent} body={body} edit />}
+        <hr/>
+      </div>
+    )
+  }
 }
 
 export default CommentItem;

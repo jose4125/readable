@@ -12,6 +12,10 @@ class Comments extends React.PureComponent {
     super(props);
     this.deleteComment = this.deleteComment.bind(this);
     this.renderComment = this.renderComment.bind(this);
+    this.handleAddComment = this.handleAddComment.bind(this);
+    this.state = {
+      addCommentIsOpen: false,
+    };
   }
   componentDidMount() {
     this.props.fetchPostComments(this.props.id)
@@ -32,15 +36,19 @@ class Comments extends React.PureComponent {
     );
   }
 
+  handleAddComment() {
+    this.setState({ addCommentIsOpen: !this.state.addCommentIsOpen });
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h2>Commets</h2>
-          <Button>ADD COMMENT</Button>
+          <Button onClick={this.handleAddComment}>ADD COMMENT</Button>
           <hr/>
         </header>
-        <CommentForm parentId={this.props.id} />
+        {this.state.addCommentIsOpen && <CommentForm parentId={this.props.id} />}
         <hr/>
         {this.props.comments.map(this.renderComment)}
       </div>
