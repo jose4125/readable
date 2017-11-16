@@ -1,7 +1,7 @@
 import { CHANGE_FILTER } from './constants';
 
 const initialState = {
-  filter: 'score',
+  filter: '',
 };
 
 function filterReducer(state = initialState, action) {

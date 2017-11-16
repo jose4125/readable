@@ -14,19 +14,21 @@ class PostsList extends React.PureComponent {
   }
 
   renderPosts(post) {
-    console.log('render post')
     return (<PostItem key={post.id} data={post} />);
   }
 
-  voteScoreSort(a, b) {
-    console.log('voteScoreSort')
-    return b.voteScore - a.voteScore;
+  sortPosts(posts) {
+    if (this.props.sort === '' || this.props.sort === 'score'){
+      return posts.sort((a, b) => b.voteScore - a.voteScore);
+    }
+    return posts.sort((a, b) => b.timestamp - a.timestamp);
   }
 
   render() {
+    const sortedPosts = this.sortPosts(this.props.posts);
     return (
       <ul>
-        {this.props.posts.map(this.renderPosts)}
+        {sortedPosts && sortedPosts.map(this.renderPosts)}
       </ul>
     );
   }
@@ -35,7 +37,8 @@ class PostsList extends React.PureComponent {
 const mapStateToProps = (state, ownProps) => {
   return {
     posts: state.posts.posts,
-  }
+    sort: state.filter.filter,
+  };
 };
 
 const mapDispatchToProps = dispatch => ({
