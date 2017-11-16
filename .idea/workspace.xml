@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ff681c7-780e-4654-9b29-4f7f41a22614" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/CommentItem.js" afterPath="$PROJECT_DIR$/src/components/CommentItem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/CommentForm/actions.js" afterPath="$PROJECT_DIR$/src/containers/CommentForm/actions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/Comments/actions.js" afterPath="$PROJECT_DIR$/src/containers/Comments/actions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/Comments/index.js" afterPath="$PROJECT_DIR$/src/containers/Comments/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/Post/reducer.js" afterPath="$PROJECT_DIR$/src/containers/Post/reducer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,7 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/Comments/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="386">
@@ -28,6 +24,16 @@
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -153,6 +159,7 @@
         <option value="$PROJECT_DIR$/src/containers/CommentForm/actions.js" />
         <option value="$PROJECT_DIR$/src/components/CommentItem.js" />
         <option value="$PROJECT_DIR$/src/containers/Comments/index.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -288,12 +295,12 @@
       <workItem from="1510581981836" duration="23821000" />
       <workItem from="1510627886621" duration="3160000" />
       <workItem from="1510706259133" duration="10333000" />
-      <workItem from="1510794143085" duration="6750000" />
+      <workItem from="1510794143085" duration="7254000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71752000" />
+    <option name="totallyTimeSpent" value="72256000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="778" extended-state="0" />
@@ -378,13 +385,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.css" />
     <entry file="file://$PROJECT_DIR$/utils/api.js" />
     <entry file="file://$PROJECT_DIR$/src/containers/CategoryList/constants.js">
@@ -678,6 +678,14 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
