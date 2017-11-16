@@ -1,6 +1,10 @@
 import { GET_COMMENTS } from './constants';
 import { fetchSinglePostComments, deleteSingleComment } from '../../utils/api';
 
+export const changeDataSaved = () => ({
+  type: 'test'
+})
+
 export const getPostComments = comments => ({
   type: GET_COMMENTS,
   comments,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchPostComments, deleteComments } from './actions';
+import { fetchPostComments, deleteComments, changeDataSaved } from './actions';
 import CommentItem from '../../components/CommentItem';
 import CommentForm from '../../containers/CommentForm';
 import Button from '../../components/button';
@@ -18,7 +18,14 @@ class Comments extends React.PureComponent {
     };
   }
   componentDidMount() {
-    this.props.fetchPostComments(this.props.id)
+    this.props.fetchPostComments(this.props.id);
+  }
+
+  componentDidUpdate() {
+    if (this.props.dataSaved) {
+      this.setState({ addCommentIsOpen: false });
+      this.props.changeDataSaved();
+    }
   }
 
   deleteComment(id) {
@@ -30,6 +37,7 @@ class Comments extends React.PureComponent {
       <CommentItem
         key={comment.id}
         data={comment}
+        dataSaved={this.props.dataSaved}
         handleDelete={() => this.deleteComment(comment.id)}
         handleEdit={() => this.editComment(comment.id)}
       />
@@ -63,11 +71,13 @@ function sortComments(a, b) {
 const mapStateToProps = state => ({
   comments: (state.comments.postComments.length) ?
     state.comments.postComments.sort(sortComments) : [],
+  dataSaved: state.post.dataSaved,
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchPostComments: id => dispatch(fetchPostComments(id)),
   deleteComments: id => dispatch(deleteComments(id)),
+  changeDataSaved: () => dispatch(changeDataSaved()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Comments);

@@ -11,6 +11,13 @@ class CommentItem extends React.PureComponent {
       editCommentIsOpen: false,
     };
   }
+
+  componentDidUpdate() {
+    if (this.props.dataSaved) {
+      this.setState({ editCommentIsOpen: false });
+    }
+  }
+
   handleEdit() {
     this.setState({
       editCommentIsOpen: !this.state.editCommentIsOpen,
