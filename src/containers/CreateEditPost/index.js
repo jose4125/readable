@@ -2,6 +2,8 @@ import React from 'react';
 import uuidv1 from 'uuid/v1';
 import { connect } from 'react-redux';
 
+import CategoryList from '../CategoryList';
+
 import { savePost, editPost } from './actions';
 import { fetchPost } from '../Post/actions';
 
@@ -64,6 +66,10 @@ class CreateEditPost extends React.PureComponent {
   render() {
     return (
       <div>
+        <header className="App-header">
+          <CategoryList />
+          <hr/>
+        </header>
         <h2>{this.props.match.params.id ? 'Edit post' : 'Create new post'}</h2>
         <form
           onSubmit={this.props.match.params.id ?

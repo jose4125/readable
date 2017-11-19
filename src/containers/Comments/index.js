@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchPostComments, deleteComments, changeDataSaved } from './actions';
+import { fetchPostComments, deleteComments, changeDataSaved, vote } from './actions';
 import CommentItem from '../../components/CommentItem';
 import CommentForm from '../../containers/CommentForm';
 import Button from '../../components/button';
@@ -32,6 +32,10 @@ class Comments extends React.PureComponent {
     this.props.deleteComments(id);
   }
 
+  handleVoteScore(id, type) {
+    this.props.vote({ option: type }, id, 'comments')
+  }
+
   renderComment(comment) {
     return (
       <CommentItem
@@ -40,6 +44,8 @@ class Comments extends React.PureComponent {
         dataSaved={this.props.dataSaved}
         handleDelete={() => this.deleteComment(comment.id)}
         handleEdit={() => this.editComment(comment.id)}
+        handleVoteUp={() => this.handleVoteScore(comment.id, 'upVote')}
+        handleVoteDown={() => this.handleVoteScore(comment.id, 'downVote')}
       />
     );
   }
@@ -52,7 +58,7 @@ class Comments extends React.PureComponent {
     return (
       <div className="App">
         <header className="App-header">
-          <h2>Commets</h2>
+          <h2>Commets ({this.props.comments.length})</h2>
           <Button onClick={this.handleAddComment}>ADD COMMENT</Button>
           <hr/>
         </header>
@@ -78,6 +84,7 @@ const mapDispatchToProps = dispatch => ({
   fetchPostComments: id => dispatch(fetchPostComments(id)),
   deleteComments: id => dispatch(deleteComments(id)),
   changeDataSaved: () => dispatch(changeDataSaved()),
+  vote: (options, id, type) => dispatch(vote(options, id, type)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Comments);

@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchCategories } from './actions';
+
+
 
 import CategoryItem from '../../components/CategoryItem';
 
@@ -13,9 +16,14 @@ class CategoryList extends React.PureComponent {
   }
   render() {
     return (
-      <ul>
-        {this.props.categories.map(this.renderCategories)}
-      </ul>
+      <nav>
+        <div>
+          <span><Link to="/">home</Link> | </span>
+          {this.props.categories.map(this.renderCategories)}
+        </div>
+        <hr />
+      </nav>
+      
     );
   }
 }

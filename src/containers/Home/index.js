@@ -11,7 +11,6 @@ class Home extends React.PureComponent {
     return (
       <div className="App">
         <header className="App-header">
-          <h2>Categories</h2>
           <CategoryList />
           <Link to="/post/new">CREATE POST</Link>
           <hr/>

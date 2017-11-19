@@ -13,6 +13,7 @@ import HOME from './containers/Home';
 import CATEGORY from './containers/Category';
 import POST from './containers/Post';
 import CREATEEDITPOST from './containers/CreateEditPost';
+import NOTFOUND from './containers/NotFound';
 import registerServiceWorker from './registerServiceWorker';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -33,6 +34,7 @@ ReactDOM.render(
         <Route path="/post/new" component={CREATEEDITPOST} />
         <Route path="/post/:id/edit" component={CREATEEDITPOST} />
         <Route path="/:category/:id" component={POST} />
+        <Route exact path="/notfound" component={NOTFOUND} />
         <Route path="/:category" component={CATEGORY} />
       </Switch>
     </ConnectedRouter>

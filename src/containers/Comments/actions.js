@@ -1,5 +1,5 @@
 import { GET_COMMENTS } from './constants';
-import { fetchSinglePostComments, deleteSingleComment } from '../../utils/api';
+import { fetchSinglePostComments, deleteSingleComment, sendVote } from '../../utils/api';
 
 export const changeDataSaved = () => ({
   type: 'test'
@@ -17,5 +17,10 @@ export const fetchPostComments = id => dispatch => (
 
 export const deleteComments = id => dispatch => (
   deleteSingleComment(id)
+    .then(res => dispatch(fetchPostComments(res.data.parentId)))
+);
+
+export const vote = (option, id, type) => dispatch => (
+  sendVote(option, id, type)
     .then(res => dispatch(fetchPostComments(res.data.parentId)))
 );

@@ -1,4 +1,4 @@
-import { push } from 'react-router-redux';
+import { push, goBack } from 'react-router-redux';
 import { savePosts, editPosts } from '../../utils/api';
 
 export const savePost = post => dispatch => (
@@ -9,6 +9,6 @@ export const savePost = post => dispatch => (
 
 export const editPost = (post, id, category) => dispatch => (
   editPosts(post, id).then(res => {
-    return dispatch(push(`/${category}/${id}`));
+    return dispatch(goBack());
   })
 );

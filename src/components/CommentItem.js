@@ -1,7 +1,9 @@
 import React from 'react';
 import CommentForm from '../containers/CommentForm';
 import Button from './button';
-import Date from './date'
+import Date from './date';
+import VoteScore from './VoteScore';
+
 
 class CommentItem extends React.PureComponent {
   constructor(props) {
@@ -30,7 +32,11 @@ class CommentItem extends React.PureComponent {
       <div>
         <p>{author}</p>
         <p>date: <Date timestamp={timestamp} /></p>
-        <p>score: {voteScore} </p>
+        <p>score: <VoteScore
+          score={voteScore}
+          onVoteUp={this.props.handleVoteUp}
+          onVoteDown={this.props.handleVoteDown}
+        /></p>
         <p>{body}</p>
         <Button onClick={this.handleEdit}>EDIT COMMENT</Button>
         <span> | </span>
