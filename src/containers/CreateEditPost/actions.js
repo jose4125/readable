@@ -3,7 +3,7 @@ import { savePosts, editPosts } from '../../utils/api';
 
 export const savePost = post => dispatch => (
   savePosts(post).then(res => {
-    return dispatch(push('/'));
+    return dispatch(goBack());
   })
 );
 

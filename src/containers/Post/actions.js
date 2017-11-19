@@ -20,7 +20,7 @@ export const fetchPost = id => dispatch => (
     })
 );
 
-export const deletePost = (id, path) => dispatch => (
+export const deletePost = (id) => dispatch => (
   deletePosts(id).then(res => {
     return dispatch(push('/'));
   })

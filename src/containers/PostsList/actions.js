@@ -1,5 +1,5 @@
 import { GET_POSTS, GET_CATEGORY_POSTS } from './constants';
-import { fetchAllPosts, fetchAllCategoryPosts, sendVote } from '../../utils/api';
+import { fetchAllPosts, fetchAllCategoryPosts, sendVote, deletePosts } from '../../utils/api';
 
 export const getPosts = posts => ({
   type: GET_POSTS,
@@ -18,6 +18,15 @@ export const getCategoryPosts = posts => ({
 export const fetchCategoryPosts = category => dispatch => (
   fetchAllCategoryPosts(category)
     .then(posts => dispatch(getCategoryPosts(posts.data)))
+);
+
+export const deletePost = (id, path) => dispatch => (
+  deletePosts(id).then(res => {
+    if (path === '/') {
+      return dispatch(fetchPosts());
+    }
+    return dispatch(fetchCategoryPosts(path.slice(1)));
+  })
 );
 
 export const vote = (option, id, type, path) => dispatch => (

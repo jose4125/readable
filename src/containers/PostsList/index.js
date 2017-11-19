@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchPosts, fetchCategoryPosts, vote } from './actions';
-import { deletePost } from '../Post/actions';
+import { fetchPosts, fetchCategoryPosts, vote, deletePost } from './actions';
 
 import PostItem from '../../components/PostItem';
 
@@ -27,7 +26,8 @@ class PostsList extends React.PureComponent {
   }
 
   handleDelete(id, category) {
-    this.props.deletePost(id, category)
+    console.log('delete', id, category)
+    this.props.deletePost(id, category);
   }
 
   handleVoteScore(id, type) {
